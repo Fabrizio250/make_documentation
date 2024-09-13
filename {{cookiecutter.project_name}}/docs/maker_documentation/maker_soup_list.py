@@ -259,7 +259,7 @@ def run_soup_list():
     # File da escludere
     excluded_files = {'maker_software_list.py', 'maker_soup_list.py'}
     source_directory = '.'  # Cartella corrente
-    requirements_file = 'requirements.txt'
+    requirements_file = '../../requirements.txt'
     standard_libs = get_standard_libs()
     requirements = parse_requirements(requirements_file)
     source_imports = parse_imports_from_source(source_directory, excluded_files)
@@ -273,3 +273,4 @@ def run_soup_list():
     generate_soup_list_md(soup_list, template_path_soup, output_md_path_soup)
 
 
+7
