@@ -27,6 +27,13 @@ jobs:
         run: |
           cd {{cookiecutter.project_name}}/docs/maker_documentation
           python main.py
+           
+
+      - name: Set up Git config
+        run: |
+          git config --global user.email "tuo.email@example.com"
+          git config --global user.name "Il Tuo Nome"
+
 
       - name: Commit and push changes
         run: |
