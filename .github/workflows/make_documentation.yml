@@ -31,8 +31,8 @@ jobs:
 
       - name: Set up Git config
         run: |
-          git config --global user.email "tuo.email@example.com"
-          git config --global user.name "Il Tuo Nome"
+          git config --global user.email "author_email"
+          git config --global user.name "author_name"
 
 
       - name: Commit and push changes
