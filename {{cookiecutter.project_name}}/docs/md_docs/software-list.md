@@ -9,9 +9,9 @@
 
 | ID | Name          | Manufacturer     | Bug tracker URL                            | Needs validation? | Next validation | Last validation | Decommissioning |
 |----|---------------|------------------|--------------------------------------------|-------------------|-----------------|-----------------|-----------------|
- | 1  | Make | GNU | https://savannah.gnu.org/bugs/?group=make | - | - | 2024-09-13 | - |
- | 1  | GitHub | GitHub, Inc. | https://github.com/github/feedback/issues | - | - | 2024-09-13 | 2024-09-13 |
- | 2  | PyCharm/IntelliJ IDEA | JetBrains | https://youtrack.jetbrains.com/issues/IDEA | - | - | 2024-09-13 | 2024-09-13 |
+ | 1  | Make | GNU | https://savannah.gnu.org/bugs/?group=make | - | - | 2024-09-14 | - |
+ | 1  | GitHub | GitHub, Inc. | https://github.com/github/feedback/issues | - | - | 2024-09-13 | 2024-09-14 |
+ | 2  | PyCharm/IntelliJ IDEA | JetBrains | https://youtrack.jetbrains.com/issues/IDEA | - | - | 2024-09-13 | 2024-09-14 |
 
 
 ---
