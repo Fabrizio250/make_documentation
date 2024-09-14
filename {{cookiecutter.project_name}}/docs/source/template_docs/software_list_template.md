@@ -9,8 +9,10 @@
 
 | ID | Name          | Manufacturer     | Bug tracker URL                            | Needs validation? | Next validation | Last validation | Decommissioning |
 |----|---------------|------------------|--------------------------------------------|-------------------|-----------------|-----------------|-----------------|
+{% raw %}
 {% for software in software_list %} | {{ software.ID }}  | {{ software.Name }} | {{ software.Manufacturer }} | {{ software.get('Bug tracker URL', '') }} | {{ software.get('Needs validation?', '') }} | {{ software.get('Next validation', '') }} | {{ software.get('Last validation', '') }} | {{ software.get('Decommissioning', '') }} |
 {% endfor %}
+{% endraw %}
 
 ---
 
