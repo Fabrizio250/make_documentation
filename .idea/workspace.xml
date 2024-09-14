@@ -5,15 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d821d138-1149-472d-8b95-0e10770c5561" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/make_documentation.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cookiecutter.json" beforeDir="false" afterPath="$PROJECT_DIR$/{{cookiecutter.project_name}}/cookiecutter.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/{{cookiecutter.project_name}}/README.MD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/workflows/make_documentation.yml" beforeDir="false" afterPath="$PROJECT_DIR$/{{cookiecutter.project_name}}/.github/workflows/make_documentation.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,8 +47,8 @@
       <recent name="C:\Users\fabri\Desktop\make_documentation\{{cookiecutter.project_name}}\docs" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\fabri\Desktop\make_documentation\{{cookiecutter.project_name}}" />
       <recent name="C:\Users\fabri\Desktop\make_documentation" />
+      <recent name="C:\Users\fabri\Desktop\make_documentation\{{cookiecutter.project_name}}" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -76,7 +69,7 @@
       <updated>1726260814336</updated>
       <workItem from="1726260815419" duration="3497000" />
       <workItem from="1726264848874" duration="353000" />
-      <workItem from="1726296847485" duration="3850000" />
+      <workItem from="1726296847485" duration="4927000" />
     </task>
     <servers />
   </component>
