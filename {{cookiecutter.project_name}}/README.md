@@ -5,6 +5,7 @@ The following repository contains a template for AI-based Digital Health softwar
 ```
 |── .github                         <- directory containing configurations for Github Actions 
 │  └── workflow                   
+├── cookiecutter.json               <- Cookiecutter configuration file.
 ├── {{cookiecutter.project_name}}   <- Main project directory.
 │  ├── data
 │  │   ├── external                 <- Data from third party sources.
@@ -35,7 +36,6 @@ The following repository contains a template for AI-based Digital Health softwar
 │  ├── README.md                    <- Project markdown file created.
 │  ├── requirements.txt             <- Txt file containing all requirements to install in venv.
 │  ├── setup.sh                     <- Allows you to configure git and DVC.
-│  ├── cookiecutter.json            <- Cookiecutter configuration file.
 │  └── README.md                    <- Markdown file for developers utilizing the template.
 ```
 
