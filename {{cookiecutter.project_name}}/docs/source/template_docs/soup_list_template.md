@@ -44,9 +44,10 @@
 
 | ID | Software System | Package Name | Programming Language | Version | Website                                          | Last verified at | Risk Level | Requirements               | Verification Reasoning                                                    |
 |----|-----------------|--------------|----------------------|---------|--------------------------------------------------|------------------|------------|----------------------------|---------------------------------------------------------------------------|
+{% raw %}
 {% for item in soup_list %}| {{ item.ID }} | {{ item['Software System'] }} | {{ item['Package Name'] }} | {{ item['Programming Language'] }} | {{ item['Version'] }} | [{{ item['Website'] }}]({{ item['Website'] }}) | {{ item['Last verified at'] }} | {{ item['Risk Level'] }} | {{ item['Requirements'] }} | {{ item['Verification Reasoning'] }} |
 {% endfor %}
-
+{% endraw %}
 
 ---
 Template Copyright [openregulatory.com](https://openregulatory.com). See [template
