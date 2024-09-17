@@ -6,8 +6,10 @@ import sysconfig
 import pkgutil
 from jinja2 import Environment, FileSystemLoader
 
+
+# Restituisce un set di nomi di moduli della libreria standard di Python.
 def get_standard_libs():
-    """Restituisce un set di nomi di moduli della libreria standard di Python."""
+
     standard_libs = set()
     stdlib_path = sysconfig.get_path('stdlib')
     if stdlib_path:
@@ -15,8 +17,10 @@ def get_standard_libs():
             standard_libs.add(module_name)
     return standard_libs
 
+
+# Estrae le dipendenze dal file requirements.txt.
 def parse_requirements(file_path):
-    """Estrae le dipendenze dal file requirements.txt."""
+
     requirements = []
     try:
         with open(file_path, 'r') as file:
@@ -29,8 +33,10 @@ def parse_requirements(file_path):
     print("Dipendenze lette da requirements.txt:", requirements)  # Debug
     return requirements
 
+
+# Estrae i moduli importati dal codice sorgente nella directory specificata, escludendo specifici file.
 def parse_imports_from_source(directory, excluded_files):
-    """Estrae i moduli importati dal codice sorgente nella directory specificata, escludendo specifici file."""
+    
     imports = set()
     import_pattern = re.compile(r'^\s*(import|from)\s+([a-zA-Z0-9_.]+)')
 
@@ -47,8 +53,10 @@ def parse_imports_from_source(directory, excluded_files):
     print("Moduli importati trovati:", imports)  # Debug
     return list(imports)
 
+
+ #Trova dipendenze sconosciute non presenti in requirements.txt e non standard, escludendo moduli locali.
 def find_unknown_dependencies(requirements, imports, standard_libs, excluded_files):
-    """Trova dipendenze sconosciute non presenti in requirements.txt e non standard, escludendo moduli locali."""
+
     local_modules = {'maker_software_list', 'maker_soup_list'}
     requirements_set = set(requirements)
 
@@ -57,8 +65,10 @@ def find_unknown_dependencies(requirements, imports, standard_libs, excluded_fil
 
     return unknown_imports
 
+
+# Aggiunge le dipendenze sconosciute al file requirements.txt.
 def update_requirements_file(file_path, unknown_dependencies):
-    """Aggiunge le dipendenze sconosciute al file requirements.txt."""
+
     try:
         with open(file_path, 'a') as file:
             for dep in unknown_dependencies:
@@ -71,8 +81,10 @@ def update_requirements_file(file_path, unknown_dependencies):
                 file.write(f"{dep}\n")
         print("File requirements.txt creato e dipendenze sconosciute aggiunte.")  # Debug
 
+
+# Cerca di ottenere il sistema software dal sito PyPI.
 def fetch_software_system_from_pypi(package_name):
-    """Cerca di ottenere il sistema software dal sito PyPI."""
+
     url = f"https://pypi.org/pypi/{package_name}/json"
     try:
         response = requests.get(url)
@@ -87,8 +99,10 @@ def fetch_software_system_from_pypi(package_name):
         print(f"Errore nella richiesta di informazioni per {package_name} da PyPI: {e}")
         return 'Unknown'
 
+
+# Cerca di determinare il linguaggio di programmazione principale di un pacchetto.
 def detect_programming_language(package_name):
-    """Cerca di determinare il linguaggio di programmazione principale di un pacchetto."""
+
     try:
         package_spec = importlib.util.find_spec(package_name)
         if package_spec and package_spec.submodule_search_locations:
@@ -99,8 +113,10 @@ def detect_programming_language(package_name):
         print(f"Errore durante l'analisi del linguaggio per {package_name}: {e}")
         return 'Unknown'
 
+
+# Analizza i file nel pacchetto per determinare il linguaggio di programmazione principale.
 def analyze_files_in_package(package_path):
-    """Analizza i file nel pacchetto per determinare il linguaggio di programmazione principale."""
+
     file_extensions = {}
     for root, _, files in os.walk(package_path):
         for file in files:
@@ -125,8 +141,10 @@ def analyze_files_in_package(package_path):
     }
     return extension_to_language.get(main_extension, 'Unknown')
 
+
+ # Cerca di ottenere il linguaggio di programmazione dal sito PyPI.
 def fetch_language_from_pypi(package_name):
-    """Cerca di ottenere il linguaggio di programmazione dal sito PyPI."""
+
     url = f"https://pypi.org/pypi/{package_name}/json"
     try:
         response = requests.get(url)
@@ -155,7 +173,7 @@ def get_last_verified_at_from_pypi(package_name):
         return 'Unknown'
 
 
-""" Funzione per ottenere le informazioni del pacchetto """
+# Funzione per ottenere le informazioni del pacchetto.
 def get_package_info(package_name):
     try:
         programming_language = detect_programming_language(package_name)
@@ -192,8 +210,10 @@ def get_package_info(package_name):
         }
     return info
 
+
+# Genera la SOUP list con componenti di origine sconosciuta e la restituisce.
 def generate_soup_list(requirements, unknown_dependencies):
-    """Genera la SOUP list con componenti di origine sconosciuta e la restituisce."""
+
     soup_list = []
 
     # Aggiungi componenti già presenti in requirements.txt
@@ -223,9 +243,9 @@ def generate_soup_list(requirements, unknown_dependencies):
     print("SOUP list generata:", unique_soup_list)  # Debug
     return unique_soup_list
 
-# Modifica: genera direttamente il markdown dalla lista in memoria
+
+# Genera il contenuto del file markdown basato su una lista SOUP e un template Jinja2.
 def generate_soup_list_md(soup_list, template_path, output_md_path):
-    """Genera il contenuto del file markdown basato su una lista SOUP e un template Jinja2."""
     if not soup_list:
         print("La SOUP list è vuota.")
         return
@@ -256,8 +276,8 @@ def generate_soup_list_md(soup_list, template_path, output_md_path):
     print(f"File markdown aggiornato: {output_md_path}")
 
 def run_soup_list():
-    # File da escludere
-    excluded_files = {'maker_software_list.py', 'maker_soup_list.py'}
+    
+    excluded_files = {'maker_software_list.py', 'maker_soup_list.py'} # File da escludere
     source_directory = '.'  # Cartella corrente
     requirements_file = '../../requirements.txt'
     standard_libs = get_standard_libs()
