@@ -69,7 +69,7 @@ initialize_repo:
 	    git remote add origin {{cookiecutter.repository_url}}
 		git add .
 	    git commit -m 'initializing from cookiecutter'
-	    git branch -b main
+	    git branch -M main
 	    git push -u origin main
         ifneq ($(data_dir),"no")
 	        mv $(data_dir) {{cookiecutter.project_name}}/data/raw
