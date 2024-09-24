@@ -6,6 +6,19 @@ import sysconfig
 import pkgutil
 from jinja2 import Environment, FileSystemLoader
 
+# Trova la radice del repository risalendo nella gerarchia delle directory.
+def find_repo_root(start_directory):
+
+    current_directory = os.path.abspath(start_directory)  
+
+    while True:
+        if os.path.exists(os.path.join(current_directory, '.git')):
+            return current_directory  # Restituisce la directory contenente .git
+        parent_directory = os.path.dirname(current_directory)
+        if parent_directory == current_directory:  # Se non ci sono più genitori
+            break
+        current_directory = parent_directory
+    return None  # Se non trova la radice del repository
 
 # Restituisce un set di nomi di moduli della libreria standard di Python.
 def get_standard_libs():
@@ -278,7 +291,7 @@ def generate_soup_list_md(soup_list, template_path, output_md_path):
 def run_soup_list():
     
     excluded_files = {'maker_software_list.py', 'maker_soup_list.py'} # File da escludere
-    source_directory = '.'  # Cartella corrente
+    source_directory = find_repo_root(os.getcwd())  # root di progetto
     requirements_file = '../../requirements.txt'
     standard_libs = get_standard_libs()
     requirements = parse_requirements(requirements_file)
